@@ -5,16 +5,20 @@ import json
 app = Flask(__name__)
 csv_file = 'sample_data.csv'
 
-
-## READ CSV 
+## READ CSV and load the data 
 data = []
-#read csv file
 with open(csv_file, encoding='utf-8-sig')as csvf: 
-    #load csv file data using csv library's dictionary reader
     csvReader = csv.DictReader(csvf) 
     for row in csvReader: 
         data.append(row)
 
+"""
+GET endpoint for /pathway/stats
+The API endpoint accepts any of the column name as a query parameter.
+
+- When query parameters are passed, the app will look for exact match based on the query parameters and returns the filtered data.
+- When no query parameters are passed, the whole dataset is returned
+"""
 @app.route('/pathway/stats', methods=['GET'])
 def get_pathway_status(
     age_range=None,count=None,dx_count=None,final_dx_code=None,
@@ -25,10 +29,12 @@ def get_pathway_status(
     for arg in args:
         result = [a for a in result if a[arg] == args[arg]]
     
-    # return result 
-    return render_output(result)
+    return result 
+    # return render_output(result)
 
-
+"""
+render_output will return a HTML table to output the data. This is useful to debuf the API endpoint response body.
+"""
 def render_output(result):
     return render_template_string('''
         <table>
