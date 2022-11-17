@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request, render_template_string
 import csv
 import json
 
@@ -22,7 +22,44 @@ def get_pathway_status(
     result = data
     for arg in args:
         result = [a for a in result if a[arg] == args[arg]]
-    return result 
+    
+    # return result 
+    return render_output(result)
+
+
+def render_output(result):
+    return render_template_string('''
+        <table>
+                <tr>
+                    <td> session_end_date </td> 
+                    <td> age_range </td>
+                    <td> itla_code </td>
+                    <td> gender </td>
+                    <td> pathway_start </td>
+                    <td> pathway_end </td>
+                    <td> dx_count </td>
+                    <td> dx_count </td>
+                    <td> final_dx_code </td>
+                    <td> final_dx_description </td>
+                    <td> count </td>
+                </tr>
+        {% for i in result %}
+                <tr>
+                    <td>{{ i.session_end_date }}</td> 
+                    <td>{{ i.age_range }}</td>
+                    <td>{{ i.itla_code }}</td>
+                    <td>{{ i.gender }}</td>
+                    <td>{{ i.pathway_start }}</td>
+                    <td>{{ i.pathway_end }}</td>
+                    <td>{{ i.dx_count }}</td>
+                    <td>{{ i.dx_count }}</td>
+                    <td>{{ i.final_dx_code }}</td>
+                    <td>{{ i.final_dx_description }}</td>
+                    <td>{{ i.count }}</td>
+                </tr>
+        {% endfor %}
+        </table>
+    ''', result=result)
 
 if __name__ == '__main__':
     app.run(debug=True)

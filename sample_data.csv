@@ -1,6 +1,10 @@
 ﻿session_end_date,age_range,itla_code,gender,pathway_start,pathway_end,dx_count,final_dx_code,final_dx_description,count
-2022-09-05,14-15,E80000002,M,Stomach,Stomach,2,Dx21,stomach,2
-2022-09-21,12-13,E80000003,F,fever,fever,4,Dx41,stomach,4
-2022-10-11,24-25,E80000005,M,Stomach,Stomach,2,Dx51,stomach,2
-2022-11-01,22-30,E80000004,F,Dental problems ,Dental problems ,1,Dx3,dental problem ,1
-2022-11-02,19-29,E80000010,M,Stomach,Stomach,2,Dx31,stomach,2
+2022-09-01,14-15,E80000002,M,Stomach,Stomach,2,Dx21,stomach,2
+2022-09-05,14-15,E80000002,F,Stomach,Stomach,2,Dx21,stomach,2
+2022-09-22,12-13,E80000003,F,fever,fever,4,Dx41,high fever,3
+2022-09-24,12-15,E80000005,F,fever,fever,4,Dx41,high fever,4
+2022-10-04,24-25,E80000005,F,Stomach,Stomach,2,Dx51,stomach,2
+2022-10-21,24-25,E80000005,M,Stomach,Stomach,2,Dx51,stomach,2
+2022-11-03,22-30,E80000004,F,Dental problems,Dental problems,1,Dx3,dental problem,1
+2022-11-11,22-30,E80000004,M,Dental problems,Dental problems,1,Dx3,dental problem,2
+2022-11-12,22-30,E80000004,M,Dental problems,Dental problems,1,Dx3,dental problem,1
