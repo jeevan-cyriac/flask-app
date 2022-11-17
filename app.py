@@ -5,6 +5,8 @@ import json
 app = Flask(__name__)
 csv_file = 'sample_data.csv'
 
+
+## READ CSV 
 data = []
 #read csv file
 with open(csv_file, encoding='utf-8-sig')as csvf: 
